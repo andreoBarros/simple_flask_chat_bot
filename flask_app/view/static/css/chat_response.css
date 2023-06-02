@@ -1,5 +1,6 @@
 #chat_answers {
-    border: 2px #eee solid;
+    border: 2px #696969 solid;
+    border-radius: 6px;
     color: brown;
     text-align: left;
     padding: 10px;

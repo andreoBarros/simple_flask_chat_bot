@@ -4,13 +4,13 @@ import re
 from typing import Optional
 
 
-def random_string():
+def random_string() -> str:
     random_list = [
         "Could you try being more descriptive?",
         "Sorry, I cannot help you about that.",
         "Do you mind trying to rephrase that?",
         "I apologize, I didn't quite understand that.",
-        "I can't answer that just yet, please if you must, try asking something else."
+        "I can't answer that just yet, please if you must, try asking something else.",
     ]
 
     list_count = len(random_list)
@@ -20,7 +20,7 @@ def random_string():
 
 
 # Load JSON data
-def load_json(file):
+def load_json(file) -> dict:
     with open(file) as pre_defined_responses:
         print(f"The file '{file}' was successfully loaded.")
         return json.load(pre_defined_responses)
@@ -32,11 +32,11 @@ synonym_list: dict = load_json("../database/synonyms.json")
 
 
 def get_list_from_string(string_input: str) -> list:
-    return string_input.replace("[", "").replace("]", "").split(",") if string_input else []
+    return string_input.split(";") if string_input else []
 
 
 def get_response(input_string: Optional[str] = ""):
-    split_message = re.split(r'\s+|[,;?!.-]\s*', input_string.lower())
+    split_message = re.split(r"\s+|[,;?!.-]\s*", input_string.lower())
     response_scores = []
 
     if input_string == "":
@@ -58,10 +58,17 @@ def get_response(input_string: Optional[str] = ""):
                         if synonyms and word in synonyms:
                             response_score += 1
 
+        is_aproximation = False
         if required_score == len(required_words):
             for word in split_message:
                 if word in expected_user_input:
                     response_score += 1
+        else:
+            for word in split_message:
+                if word in expected_user_input:
+                    response_score += 1
+                is_aproximation = True
+
         response_scores.append(response_score)
 
     best_response = max(response_scores)
@@ -69,5 +76,4 @@ def get_response(input_string: Optional[str] = ""):
 
     if best_response != 0:
         return response_data[response_index]["answer"]
-
     return random_string()
