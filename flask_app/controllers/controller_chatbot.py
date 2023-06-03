@@ -6,11 +6,11 @@ from typing import Optional
 
 def random_string() -> str:
     random_list = [
-        "Could you try being more descriptive?",
-        "Sorry, I cannot help you about that.",
-        "Do you mind trying to rephrase that?",
+        #        "Could you try being more descriptive?",
+        #        "Sorry, I cannot help you about that.",
+        #        "Do you mind trying to rephrase that?",
         "I apologize, I didn't quite understand that.",
-        "I can't answer that just yet, please if you must, try asking something else.",
+        #        "I can't answer that just yet, please if you must, try asking something else.",
     ]
 
     list_count = len(random_list)
@@ -58,16 +58,10 @@ def get_response(input_string: Optional[str] = ""):
                         if synonyms and word in synonyms:
                             response_score += 1
 
-        is_aproximation = False
         if required_score == len(required_words):
             for word in split_message:
                 if word in expected_user_input:
                     response_score += 1
-        else:
-            for word in split_message:
-                if word in expected_user_input:
-                    response_score += 1
-                is_aproximation = True
 
         response_scores.append(response_score)
 
