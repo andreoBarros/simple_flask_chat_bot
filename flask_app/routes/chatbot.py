@@ -14,8 +14,6 @@ def chatbot():
 def chatbot_answers():
     body: dict = request.json
     content = body.get("user_input")
-    print("what", content)
-
     chat_answer = controller_chatbot.get_response(content)
 
     return chat_answer

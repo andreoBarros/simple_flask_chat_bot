@@ -4,16 +4,17 @@
 <link href="{{ url_for('static', filename='css/chat_response.css') }}" rel="stylesheet" type="text/css" />
 {% endblock %}
 {% block content %}
-<h1>{% block title %} Welcome to Simple Chatbot {% endblock %}</h1>
+<h1>{% block title %} Yet Another Simple Chatbot: YASC {% endblock %}</h1>
 <form method="post">
     <div class="form-group">
 
-        <h2 id="chat_answers">{{ answer }}</h2>
+        <h4 id="chat_answers">{{ answer }}</h4>
 
-        <label for="content">Content</label>
+        <label for="content">Your Question: </label>
         <input id="user_input" placeholder="Ask the bot:" class="form-control">{{ request.form['user_input']
         }}</input>
     </div>
+    <br>
     <div class="form-group">
         <button type="button" id="submit_button" class="btn btn-primary">Submit</button>
 
