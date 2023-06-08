@@ -21,12 +21,12 @@
     "response_type": "question",
     "user_input": "how;to;learn;code;coding;apps",
     "answer": "Start by typing: 'How to learn coding' on Google.",
-    "required_words": "learn,code"
+    "required_words": "learn;code"
   },
   {
     "response_type": "question",
-    "user_input": "how,are,you",
+    "user_input": "how;are;you",
     "answer": "I'm great! Thanks for asking.",
-    "required_words": "how,are,yo]"
+    "required_words": "how;are;you"
   }
 ]

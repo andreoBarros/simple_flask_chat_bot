@@ -6,11 +6,11 @@ from typing import Optional
 
 def random_string() -> str:
     random_list = [
-        #        "Could you try being more descriptive?",
-        #        "Sorry, I cannot help you about that.",
-        #        "Do you mind trying to rephrase that?",
+        "Could you try being more descriptive?",
+        "Sorry, I cannot help you about that.",
+        "Do you mind trying to rephrase that?",
         "I apologize, I didn't quite understand that.",
-        #        "I can't answer that just yet, please if you must, try asking something else.",
+        "I can't answer that just yet, please if you must, try asking something else.",
     ]
 
     list_count = len(random_list)
